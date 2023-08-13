@@ -27,6 +27,7 @@ function HomePage() {
   });
   const { watch, reset } = methods;
   const filters = watch();
+  console.log("filter", filters);
   const filterProducts = applyFilter(products, filters);
 
   useEffect(() => {
@@ -102,7 +103,7 @@ function applyFilter(products, filters) {
   }
 
   // FILTER PRODUCTS
-  if (filters.gender.length > 0) {
+  if (filters?.gender?.length > 0) {
     filteredProducts = products.filter((product) =>
       filters.gender.includes(product.gender)
     );
